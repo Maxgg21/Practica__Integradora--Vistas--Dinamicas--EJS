@@ -1,6 +1,5 @@
 const platos = require('../database');
 
-
 module.exports = {
 
     index: (req, res) => {
@@ -10,14 +9,14 @@ module.exports = {
     },
     buscar: (req, res) => {
         let platoBuscado = req.params.id;
-        let platoEncontrado = platos.filter(plato => plato.id == Number(platoBuscado))
-        if(typeof platoEncontrado == 'undefined'){
-            res.render('Plato tipoco')
-        } else {
+        let platoEncontrado = platos.find(plato => plato.id == Number(platoBuscado))
+        if(typeof platoEncontrado != 'undefined'){
             res.render('detalleMenu', {
-                platos: platoEncontrado
-        }) 
-    }
+                plato: platoEncontrado
+            }) 
+        } else {
+            res.send('Plato tipoco')
+        }
    
 }
 }

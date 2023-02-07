@@ -459,6 +459,11 @@ a {
 .ps-show-inline-block {
   display: inline-block !important;
 }
+
+.tipoco {
+  display: none;
+}
+
 @media (max-width: 1205px) {
   .ps-auto {
     max-width: 95%;
